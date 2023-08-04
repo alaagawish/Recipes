@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol NetworkProtocol {
+     func getData(handler: @escaping (Response?)-> Void)
+}
