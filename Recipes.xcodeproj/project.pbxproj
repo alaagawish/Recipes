@@ -33,6 +33,7 @@
 		61E1914B2A7C87370047954F /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E1914A2A7C87370047954F /* Network.swift */; };
 		61E1914D2A7C87400047954F /* LocalSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E1914C2A7C87400047954F /* LocalSource.swift */; };
 		61E191502A7C87560047954F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E1914F2A7C87560047954F /* Constants.swift */; };
+		61E191542A7C8E160047954F /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E191532A7C8E160047954F /* Recipe.swift */; };
 		DA38E524AF08565F79130D29 /* Pods_RecipesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C089110515D79E6A087482 /* Pods_RecipesTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,7 @@
 		61E1914A2A7C87370047954F /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		61E1914C2A7C87400047954F /* LocalSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSource.swift; sourceTree = "<group>"; };
 		61E1914F2A7C87560047954F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		61E191532A7C8E160047954F /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		86C089110515D79E6A087482 /* Pods_RecipesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecipesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		953BC2AAA3DC6CC80E643F06 /* Pods-Recipes-RecipesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipes-RecipesUITests.release.xcconfig"; path = "Target Support Files/Pods-Recipes-RecipesUITests/Pods-Recipes-RecipesUITests.release.xcconfig"; sourceTree = "<group>"; };
 		99C5EDCBADB77B7B05F83535 /* Pods-RecipesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipesTests.debug.xcconfig"; path = "Target Support Files/Pods-RecipesTests/Pods-RecipesTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				61E191272A7C86100047954F /* Response.swift */,
+				61E191532A7C8E160047954F /* Recipe.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -621,6 +624,7 @@
 				61E191342A7C86A50047954F /* DetailsViewController.swift in Sources */,
 				61E1913E2A7C86D80047954F /* LoginViewController.swift in Sources */,
 				61E191502A7C87560047954F /* Constants.swift in Sources */,
+				61E191542A7C8E160047954F /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

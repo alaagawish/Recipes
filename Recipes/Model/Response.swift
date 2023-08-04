@@ -7,3 +7,7 @@
 
 import Foundation
 
+struct Response: Decodable {
+    
+    let recipes: [Recipe]
+}
