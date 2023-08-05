@@ -26,6 +26,8 @@ class Constants {
     static let detailsStoryboard = "details"
     static let logOut = "Logging Out"
     static let logOutQuestion = "Are you sure to logout?"
+    static let deleteQuestion = "Are you sure to delete?"
+    static let delete = "Removing from favourite"
     
     
 }

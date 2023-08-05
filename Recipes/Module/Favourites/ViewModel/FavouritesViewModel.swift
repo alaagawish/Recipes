@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+class FavouritesViewModel {
+    var localSource: LocalSourceProtocol!
+    
+    init(localSource: LocalSourceProtocol) {
+        self.localSource = localSource
+    }
+    
+    func deleteRecipe(recipe: Recipe) {
+        
+    }
+}
