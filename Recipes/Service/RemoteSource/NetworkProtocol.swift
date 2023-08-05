@@ -8,5 +8,5 @@
 import Foundation
 
 protocol NetworkProtocol {
-     func getData(handler: @escaping (Response?)-> Void)
+    func getData(handler: @escaping ([Recipe]?)-> Void)
 }

@@ -23,17 +23,26 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         super.viewDidLoad()
         
         initViews()
-        
-        
+        homeViewModel.getData()
+        search()
     }
     
     func initViews() {
         disposeBag = DisposeBag()
         searchBar.delegate = self
+        self.recipesTable.register(UINib(nibName: Constants.recipeTableViewCell, bundle: nil), forCellReuseIdentifier: Constants.recipeCell)
+        
         homeViewModel = HomeViewModel(network: Network())
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped))
         logoutImageView.addGestureRecognizer(tapGesture)
         logoutImageView.isUserInteractionEnabled = true
+        homeViewModel.passRecipesToViewController = {
+            [weak self] in
+            self?.allRecipes = self?.homeViewModel.recipes ?? []
+            self?.recipesTable.reloadData()
+            self?.search()
+        }
+        
         
     }
     
@@ -56,7 +65,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
     
     func filterList(searchText: String) {
         if(!searchText.isEmpty) {
-            currentRecipes = allRecipes.filter{ $0.name!.lowercased().contains(searchText.lowercased())}
+            currentRecipes = allRecipes.filter{ $0.name.lowercased().contains(searchText.lowercased())}
             if currentRecipes.isEmpty {
                 currentRecipes = []
             }

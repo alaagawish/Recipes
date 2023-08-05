@@ -9,15 +9,15 @@ import Foundation
 import Alamofire
 
 class Network: NetworkProtocol {
-    func getData(handler: @escaping (Response?) -> Void) {
-        AF.request(Constants.url).responseDecodable(of: Response.self) { response in
-            switch response.result {
-            case .success(let data):
-                handler(data)
-            case .failure(let error):
-                print("Error in retrieving data: \(error)")
-            }
+    func getData(handler: @escaping ([Recipe]?) -> Void) {
+        AF.request(Constants.url).responseDecodable(of: [Recipe].self) { response in
             
+            switch response.result {
+            case .success(let recipes):
+                handler(recipes)
+            case .failure(let error):
+                print("Request failed with error: \(error)")
+            }
         }
     }
     
