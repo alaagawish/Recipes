@@ -21,7 +21,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nOl-Bh-Syf">
                         <rect key="frame" x="0.0" y="0.0" width="453" height="103"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gr7-da-oYp">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gr7-da-oYp">
                                 <rect key="frame" x="0.0" y="0.0" width="136" height="103"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfg-7k-UFi">
@@ -60,7 +60,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="recipeHighlightLabel" destination="s5A-Kl-YcL" id="3Z2-vG-K9d"/>
+                <outlet property="recipeHeadlineLabel" destination="s5A-Kl-YcL" id="3Z2-vG-K9d"/>
                 <outlet property="recipeImageView" destination="Gr7-da-oYp" id="ccX-2K-M1y"/>
                 <outlet property="recipeNameLabel" destination="Sfg-7k-UFi" id="9HK-wI-YZD"/>
             </connections>
