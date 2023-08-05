@@ -28,7 +28,7 @@ class RecipeTableViewCell: UITableViewCell {
         
         recipeNameLabel.text = recipe.name
         recipeHeadlineLabel.text = recipe.headline
-        let url = URL(string: recipe.image ?? "" )
+        let url = URL(string: recipe.image  )
         recipeImageView.kf.setImage(with: url,
                                     placeholder: UIImage(named: Constants.noImage))
         

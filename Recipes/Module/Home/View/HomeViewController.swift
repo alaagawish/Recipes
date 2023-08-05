@@ -25,6 +25,8 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         initViews()
         homeViewModel.getData()
         search()
+        
+        
     }
     
     func initViews() {
@@ -40,6 +42,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
             [weak self] in
             self?.allRecipes = self?.homeViewModel.recipes ?? []
             self?.recipesTable.reloadData()
+            
             self?.search()
         }
         

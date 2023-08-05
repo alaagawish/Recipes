@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Reachability
 
 extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -32,8 +33,40 @@ extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let recipeDetails = self.storyboard?.instantiateViewController(withIdentifier: Constants.detailsStoryboard) as! DetailsViewController
-        recipeDetails.recipe = favouritesRecipes[indexPath.row]
-        navigationController?.pushViewController(recipeDetails, animated: true)
+        
+        
+        
+        let reachability = try! Reachability()
+        if reachability.connection != .unavailable {
+            print("Network is available")
+            recipeDetails.recipe = favouritesRecipes[indexPath.row]
+            navigationController?.pushViewController(recipeDetails, animated: true)
+            
+            
+        } else {
+            print("Network is not available")
+            //alert
+            let alert  = Alert().errorAlert(title: Constants.connection, msg: Constants.checkConnection)
+            
+            self.present(alert, animated: true, completion: nil)
+            
+            
+        }
+        
+        reachability.whenReachable = { reachability in
+            print("Network is available")
+        }
+        reachability.whenUnreachable = { reachability in
+            print("Network is not available")
+            
+        }
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
+        
+        
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -46,6 +79,7 @@ extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
         
         self.present(alert, animated: true, completion: nil)
     }
+    
     func checkFavouritesExistance() {
         if favouritesRecipes.count == 0 {
             favouriteTable.isHidden = true

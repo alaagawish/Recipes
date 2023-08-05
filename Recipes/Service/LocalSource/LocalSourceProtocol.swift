@@ -7,6 +7,12 @@
 
 import Foundation
 
-class LocalSourceProtocol {
+protocol LocalSourceProtocol {
+    func insertRecipe(recipe: Recipe)
     
+    func getDataFromLocal() -> [Recipe]
+    
+    func getRecipeFromLocal(id: String )  -> Recipe?
+    
+    func deleteFromLocal(id: String )
 }
