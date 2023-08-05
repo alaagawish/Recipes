@@ -20,6 +20,7 @@ class Constants {
     static let password = "alaa1234"
     static let userPassword = "password"
     static let userEmail = "email"
+    static let recipeCell = "recipeCell"
     
     
 }
