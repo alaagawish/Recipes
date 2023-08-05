@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+class HomeViewModel {
+    var network: NetworkProtocol!
+    
+    init(network: NetworkProtocol) {
+        self.network = network
+    }
+}
