@@ -10,7 +10,7 @@ import UIKit
 
 class Alert{
     
-    func showRemoveItemFromFavoritesAlert(title: String, msg: String, yesHandler:@escaping (UIAlertAction)->())-> UIAlertController{
+    func questionedAlert(title: String, msg: String, yesHandler:@escaping (UIAlertAction)->())-> UIAlertController{
         let alert : UIAlertController = UIAlertController(title: title, message:msg, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: Constants.yes, style: .destructive, handler: yesHandler))
         alert.addAction(UIAlertAction(title: Constants.cancel, style: .cancel, handler: nil))

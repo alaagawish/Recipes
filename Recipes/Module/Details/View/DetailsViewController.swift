@@ -9,6 +9,7 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
+    var recipe: Recipe!
     override func viewDidLoad() {
         super.viewDidLoad()
 

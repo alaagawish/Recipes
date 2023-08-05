@@ -20,6 +20,12 @@ class Constants {
     static let password = "alaa1234"
     static let userPassword = "password"
     static let userEmail = "email"
+    static let recipeCell = "recipeCell"
+    static let recipeTableViewCell = "RecipeTableViewCell"
+    static let noImage = "noImage"
+    static let detailsStoryboard = "details"
+    static let logOut = "Logging Out"
+    static let logOutQuestion = "Are you sure to logout?"
     
     
 }
