@@ -26,6 +26,18 @@ class Constants {
     static let detailsStoryboard = "details"
     static let logOut = "Logging Out"
     static let logOutQuestion = "Are you sure to logout?"
+    static let deleteQuestion = "Are you sure to delete?"
+    static let delete = "Removing from favourite"
+    static let connection = "Internet Connection"
+    static let checkConnection = "Check connection and try again"
+    static let entityName = "RecipeItem"
+    static let headline = "headline"
+    static let name = "name"
+    static let id = "id"
+    static let country = "country"
+    static let calories = "calories"
+    static let image = "image"
+    static let iDFormat = "id == %@"
     
     
 }

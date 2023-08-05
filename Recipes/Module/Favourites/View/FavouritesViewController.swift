@@ -8,22 +8,30 @@
 import UIKit
 
 class FavouritesViewController: UIViewController {
-
+    
+    @IBOutlet weak var favouriteTable: UITableView!
+    @IBOutlet weak var noFavouritesLabel: UILabel!
+    var favouritesRecipes: [Recipe] = []
+    var favouritesViewModel: FavouritesViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        initViews()
+        favouritesViewModel.getRecipes()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func initViews() {
+        
+        favouritesViewModel = FavouritesViewModel(localSource: LocalSource())
+        self.favouriteTable.register(UINib(nibName: Constants.recipeTableViewCell, bundle: nil), forCellReuseIdentifier: Constants.recipeCell)
+        favouritesViewModel.refreshFavouriteRecipes = {
+            [weak self] in
+            
+            self?.favouritesRecipes = self?.favouritesViewModel.recipes ?? []
+            self?.favouriteTable.reloadData()
+            
+        }
     }
-    */
-
+    
 }
+
