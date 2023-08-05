@@ -24,7 +24,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         
         initViews()
         
-                
+        
     }
     
     func initViews() {
@@ -38,7 +38,13 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
     }
     
     @objc func imageViewTapped() {
-        UserDefault().setUser(email: "", password: "")
+        let alert = Alert().questionedAlert(title: Constants.logOut, msg: Constants.logOutQuestion) { [weak self] alert in
+            
+            self?.homeViewModel.logout()
+            self?.redirectLogin()
+        }
+        self.present(alert, animated: true)
+        
     }
     
     func search() {
@@ -60,4 +66,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         self.recipesTable.reloadData()
     }
     
+    func redirectLogin() {
+        dismiss(animated: true)
+    }
 }

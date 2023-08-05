@@ -23,6 +23,8 @@ class Constants {
     static let recipeCell = "recipeCell"
     static let noImage = "noImage"
     static let detailsStoryboard = "details"
+    static let logOut = "Logging Out"
+    static let logOutQuestion = "Are you sure to logout?"
     
     
 }

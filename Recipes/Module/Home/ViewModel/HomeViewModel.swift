@@ -13,4 +13,11 @@ class HomeViewModel {
     init(network: NetworkProtocol) {
         self.network = network
     }
+    
+    func logout() {
+         
+            UserDefault().setUser(email: "", password: "")
+            
+         
+    }
 }
