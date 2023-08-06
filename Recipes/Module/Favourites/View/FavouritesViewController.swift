@@ -13,16 +13,25 @@ class FavouritesViewController: UIViewController {
     @IBOutlet weak var noFavouritesLabel: UILabel!
     var favouritesRecipes: [Recipe] = []
     var favouritesViewModel: FavouritesViewModel!
+    var homeViewModel: HomeViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initViews()
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
         favouritesViewModel.getRecipes()
+        
     }
     
     func initViews() {
         
+        homeViewModel = HomeViewModel(network: Network())
         favouritesViewModel = FavouritesViewModel(localSource: LocalSource())
+        
+        homeViewModel.getData()
         self.favouriteTable.register(UINib(nibName: Constants.recipeTableViewCell, bundle: nil), forCellReuseIdentifier: Constants.recipeCell)
         favouritesViewModel.refreshFavouriteRecipes = {
             [weak self] in

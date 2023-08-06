@@ -25,6 +25,8 @@ class LoginViewController: UIViewController {
     func setUpUI() {
         loginButton.layer.cornerRadius = 25.0
         loginButton.isEnabled = false
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
     
     func initViews() {
@@ -37,6 +39,9 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func login(_ sender: Any) {
+        logIn()
+    }
+    func logIn() {
         if loginViewModel.checkInformation(email: emailTextField.text ?? "", password: passwordTextField.text ?? "") {
             
             goHome()
@@ -47,7 +52,6 @@ class LoginViewController: UIViewController {
         }
         
     }
-    
     func checkUser() {
         if UserDefault().getEmail() != "" {
             goHome()

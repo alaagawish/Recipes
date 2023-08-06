@@ -5,10 +5,9 @@
 //  Created by Alaa on 05/08/2023.
 //
 
-import Foundation
 import UIKit
 
-extension LoginViewController: UITextFieldDelegate {
+extension LoginViewController {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
@@ -28,4 +27,14 @@ extension LoginViewController: UITextFieldDelegate {
             loginButton.isEnabled = true
         }
     }
+    
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if  textField == emailTextField {
+            passwordTextField.becomeFirstResponder()
+        }else {
+            logIn()
+        }
+        return true
+    }
+    
 }

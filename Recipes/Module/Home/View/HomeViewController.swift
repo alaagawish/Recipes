@@ -11,6 +11,7 @@ import RxSwift
 
 class HomeViewController: UIViewController, UISearchBarDelegate {
     
+    @IBOutlet weak var noInternetLabel: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var logoutImageView: UIImageView!
     @IBOutlet weak var recipesTable: UITableView!
@@ -25,7 +26,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         initViews()
         homeViewModel.getData()
         search()
-        
+        checkInternet()
         
     }
     
@@ -35,6 +36,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         self.recipesTable.register(UINib(nibName: Constants.recipeTableViewCell, bundle: nil), forCellReuseIdentifier: Constants.recipeCell)
         
         homeViewModel = HomeViewModel(network: Network())
+        checkInternet() 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped))
         logoutImageView.addGestureRecognizer(tapGesture)
         logoutImageView.isUserInteractionEnabled = true
@@ -80,5 +82,16 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
     
     func redirectLogin() {
         dismiss(animated: true)
+    }
+    
+    func checkInternet() {
+        if homeViewModel.checkInternetConnection() {
+           
+            recipesTable.isHidden = false
+            noInternetLabel.isHidden = true
+        }else {
+            recipesTable.isHidden = true
+            noInternetLabel.isHidden = false
+        }
     }
 }

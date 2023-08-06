@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Reachability
 
 extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -34,38 +33,15 @@ extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let recipeDetails = self.storyboard?.instantiateViewController(withIdentifier: Constants.detailsStoryboard) as! DetailsViewController
         
-        
-        
-        let reachability = try! Reachability()
-        if reachability.connection != .unavailable {
-            print("Network is available")
-            recipeDetails.recipe = favouritesRecipes[indexPath.row]
+        if homeViewModel.checkInternetConnection() {
+            recipeDetails.recipe =  getRecipeFromNetwork(recipe: favouritesRecipes[indexPath.row])
+            
             navigationController?.pushViewController(recipeDetails, animated: true)
             
-            
         } else {
-            print("Network is not available")
-            //alert
-            let alert  = Alert().errorAlert(title: Constants.connection, msg: Constants.checkConnection)
             
-            self.present(alert, animated: true, completion: nil)
-            
-            
+            checkInternetAlert()
         }
-        
-        reachability.whenReachable = { reachability in
-            print("Network is available")
-        }
-        reachability.whenUnreachable = { reachability in
-            print("Network is not available")
-            
-        }
-        do {
-            try reachability.startNotifier()
-        } catch {
-            print("Unable to start notifier")
-        }
-        
         
     }
     
@@ -88,5 +64,24 @@ extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
             favouriteTable.isHidden = false
             noFavouritesLabel.isHidden = true
         }
+    }
+    
+    func getRecipeFromNetwork(recipe: Recipe) -> Recipe? {
+        
+        let recipes = homeViewModel.recipes.filter{$0.id == recipe.id}
+        if recipes.count == 0 {
+            homeViewModel.getData()
+            checkInternetAlert()
+            return recipe
+        }else {
+            return recipes[0]
+        }
+    }
+    
+    func checkInternetAlert() {
+        let alert  = Alert().errorAlert(title: Constants.connection, msg: Constants.checkConnection)
+        
+        self.present(alert, animated: true, completion: nil)
+        
     }
 }
