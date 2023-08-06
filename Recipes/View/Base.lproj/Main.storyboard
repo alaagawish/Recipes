@@ -214,11 +214,15 @@
                     <navigationItem key="navigationItem" title="Recipe Details" id="4pO-6r-cHp">
                         <barButtonItem key="rightBarButtonItem" image="heart" catalog="system" style="plain" id="5cv-em-VtO">
                             <color key="tintColor" systemColor="systemPinkColor"/>
+                            <connections>
+                                <action selector="addAndRemoveFavourite:" destination="NwW-VL-6Ql" id="Xeu-GY-jH8"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="calories" destination="B07-30-uXv" id="abJ-3I-Y8D"/>
                         <outlet property="caloriesTitle" destination="9jl-wA-u1Y" id="hTF-KI-8Ta"/>
+                        <outlet property="favouriteButton" destination="5cv-em-VtO" id="7TQ-aC-8C8"/>
                         <outlet property="headline" destination="8Qk-KY-ipz" id="quI-uX-Lr9"/>
                         <outlet property="ingredients" destination="cAj-2u-k4E" id="Ck0-9S-O5b"/>
                         <outlet property="name" destination="hAY-Ba-jMy" id="Vls-Tc-BdD"/>

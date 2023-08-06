@@ -38,6 +38,8 @@ class Constants {
     static let calories = "calories"
     static let image = "image"
     static let iDFormat = "id == %@"
+    static let heart = "heart"
+    static let fillHeart = "heart.fill"
     
     
 }

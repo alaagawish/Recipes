@@ -17,6 +17,9 @@ class FavouritesViewController: UIViewController {
         super.viewDidLoad()
         
         initViews()
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
         favouritesViewModel.getRecipes()
     }
     

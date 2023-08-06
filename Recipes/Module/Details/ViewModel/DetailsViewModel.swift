@@ -6,3 +6,23 @@
 //
 
 import Foundation
+
+class DetailsViewModel {
+    var localSource: LocalSourceProtocol!
+    var favouriteRecipes: [Recipe] = []
+    init(localSource: LocalSourceProtocol) {
+        self.localSource = localSource
+    }
+    
+    func addRecipeToFavourite(recipe: Recipe) {
+        localSource.insertRecipe(recipe: recipe)
+    }
+    
+    func removeFromFavourites(recipe: Recipe) {
+        localSource.deleteFromLocal(id: recipe.id)
+        
+    }
+    func getAllFavourites() {
+        favouriteRecipes = localSource.getDataFromLocal()
+    }
+}

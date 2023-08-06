@@ -7,6 +7,8 @@
 
 import UIKit
 import Kingfisher
+import RxSwift
+import RxCocoa
 
 class DetailsViewController: UIViewController {
     
@@ -15,18 +17,25 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var ingredients: UILabel!
     @IBOutlet weak var recipeDescriptionLabel: UILabel!
     @IBOutlet weak var proteins: UILabel!
+    @IBOutlet weak var favouriteButton: UIBarButtonItem!
     @IBOutlet weak var calories: UILabel!
     @IBOutlet weak var headline: UILabel!
     @IBOutlet weak var caloriesTitle: UILabel!
     @IBOutlet weak var proteinsTitle: UILabel!
     var recipe: Recipe!
+    var detailsViewModel: DetailsViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        initViews()
         setUpUI()
         checkExistance()
-        
+        checkItemInFavourites()
+    }
+    
+    func initViews() {
+        detailsViewModel = DetailsViewModel(localSource: LocalSource())
+        detailsViewModel.getAllFavourites()
     }
     
     func setUpUI() {
@@ -63,6 +72,29 @@ class DetailsViewController: UIViewController {
         }
     }
     
+    @IBAction func addAndRemoveFavourite(_ sender: Any) {
+        
+        if favouriteButton.image ==  UIImage(systemName: Constants.heart) {
+            
+            favouriteButton.image = UIImage(systemName: Constants.fillHeart)
+            detailsViewModel.addRecipeToFavourite(recipe: recipe)
+            
+        }else {
+            let alert = Alert().questionedAlert(title: Constants.deleteQuestion, msg: Constants.delete) { [weak self] alert in
+                self?.favouriteButton.image = UIImage(systemName: Constants.heart)
+                
+                self?.detailsViewModel.removeFromFavourites(recipe: (self?.recipe)!)
+                
+            }
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
     
+    func checkItemInFavourites() {
+        let favourites =  detailsViewModel.favouriteRecipes.filter{$0.id == recipe.id}
+        if favourites.count > 0 {
+            favouriteButton.image = UIImage(systemName: Constants.fillHeart)
+        }
+    }
     
 }

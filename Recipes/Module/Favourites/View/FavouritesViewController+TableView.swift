@@ -34,22 +34,16 @@ extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let recipeDetails = self.storyboard?.instantiateViewController(withIdentifier: Constants.detailsStoryboard) as! DetailsViewController
         
-        
-        
         let reachability = try! Reachability()
         if reachability.connection != .unavailable {
-            print("Network is available")
             recipeDetails.recipe = favouritesRecipes[indexPath.row]
             navigationController?.pushViewController(recipeDetails, animated: true)
             
-            
         } else {
-            print("Network is not available")
-            //alert
+            
             let alert  = Alert().errorAlert(title: Constants.connection, msg: Constants.checkConnection)
             
             self.present(alert, animated: true, completion: nil)
-            
             
         }
         
