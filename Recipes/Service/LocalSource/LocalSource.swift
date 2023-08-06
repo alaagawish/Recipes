@@ -27,7 +27,7 @@ class LocalSource: LocalSourceProtocol {
         recipee.setValue(recipe.country, forKey: Constants.country)
         recipee.setValue(recipe.calories, forKey: Constants.calories)
         recipee.setValue(recipe.headline, forKey: Constants.headline)
-       
+        
         saveChanges()
     }
     
@@ -46,7 +46,7 @@ class LocalSource: LocalSourceProtocol {
                 
                 recipesLocal.append(recipe)
             }
-            print("\nGetting all recipes done...\n")
+            
         }catch let error as NSError{
             print("\nerror in fetching all recipes: \(error)\n")
         }
@@ -70,9 +70,7 @@ class LocalSource: LocalSourceProtocol {
                                      country: recipeItem.value(forKey: Constants.country) as! String,
                                      calories: recipeItem.value(forKey: Constants.calories) as! String,
                                      headline: recipeItem.value(forKey: Constants.headline) as! String)
-                print("\nGetting recipe done...\n")
-            }else{
-                print("no such itemmmmmm")
+                
             }
         }catch let error as NSError{
             print("\nerror in fetching all Recipes: \(error)\n")
@@ -104,7 +102,7 @@ class LocalSource: LocalSourceProtocol {
     func saveChanges() {
         do{
             try managedContext.save()
-            print("\nChanged saved...\n")
+            
         }catch let error as NSError{
             print("\nerror in saving: \(error)\n")
         }

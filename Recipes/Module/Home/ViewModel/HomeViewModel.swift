@@ -10,7 +10,7 @@ import Foundation
 class HomeViewModel {
     var network: NetworkProtocol!
     var passRecipesToViewController: (()->()) = {}
-    var recipes: [Recipe] = []{
+    var recipes: [Recipe] = [] {
         didSet{
             passRecipesToViewController()
         }
@@ -25,10 +25,15 @@ class HomeViewModel {
         UserDefault().setUser(email: "", password: "")
     }
     
-    func getData(){
+    func getData() {
         network.getData { [weak self] response in
             
             self?.recipes = response ?? []
         }
     }
+    
+    func checkInternetConnection() -> Bool {
+        return InternetConnection.sharedInstance.isConnectedToInternet()
+    }
+    
 }
