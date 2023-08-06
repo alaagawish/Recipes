@@ -155,6 +155,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		6134FF652A7F111000DA4E26 /* RecipeCell */ = {
+			isa = PBXGroup;
+			children = (
+				61004E5B2A7E20C500919028 /* RecipeTableViewCell.swift */,
+				61004E5C2A7E20C500919028 /* RecipeTableViewCell.xib */,
+			);
+			path = RecipeCell;
+			sourceTree = "<group>";
+		};
 		613648A32A79A122002BD252 = {
 			isa = PBXGroup;
 			children = (
@@ -298,11 +307,10 @@
 		61E1912D2A7C865A0047954F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6134FF652A7F111000DA4E26 /* RecipeCell */,
 				613648B52A79A122002BD252 /* Main.storyboard */,
 				613648BD2A79A123002BD252 /* LaunchScreen.storyboard */,
 				61004E532A7DFEE500919028 /* Alert.swift */,
-				61004E5B2A7E20C500919028 /* RecipeTableViewCell.swift */,
-				61004E5C2A7E20C500919028 /* RecipeTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
