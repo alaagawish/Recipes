@@ -12,7 +12,8 @@ class MockAPIFileLoader {
     
     func loadApiFiles() -> [Recipe]? {
         let bundle = Bundle(for: type(of: self))
-        let fileUrl =  bundle.url(forResource: "MockResponse", withExtension: "json")
+        
+        let fileUrl = bundle.url(forResource: "MockResponse", withExtension: "json")
         do {
             let data = try Data(contentsOf: fileUrl!)
             let response = try JSONDecoder().decode([Recipe].self, from: data)
