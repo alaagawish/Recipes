@@ -17,8 +17,9 @@ class MockNetwork: NetworkProtocol{
     }
     
     let files = MockAPIFileLoader().loadApiFiles()
+   
     func getData(handler: @escaping ([Recipes.Recipe]?) -> Void) {
-        
+        print(files)
         if isSuccess {
             handler(files)
         }else {

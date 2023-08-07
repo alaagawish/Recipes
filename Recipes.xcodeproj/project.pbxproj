@@ -27,6 +27,7 @@
 		613648CA2A79A124002BD252 /* RecipesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613648C92A79A124002BD252 /* RecipesTests.swift */; };
 		613648D42A79A124002BD252 /* RecipesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613648D32A79A124002BD252 /* RecipesUITests.swift */; };
 		613648D62A79A124002BD252 /* RecipesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613648D52A79A124002BD252 /* RecipesUITestsLaunchTests.swift */; };
+		615A02202A81B114004B6359 /* MockResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 615A021F2A81B114004B6359 /* MockResponse.json */; };
 		6177F3D32A7F34E5004AC69E /* InternetConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6177F3D22A7F34E5004AC69E /* InternetConnection.swift */; };
 		6177F3D62A7F42AC004AC69E /* ViewController+TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6177F3D52A7F42AC004AC69E /* ViewController+TextFieldDelegate.swift */; };
 		6177F3E62A7F498C004AC69E /* MockAPIFileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6177F3E52A7F498C004AC69E /* MockAPIFileLoader.swift */; };
@@ -99,11 +100,11 @@
 		613648CF2A79A124002BD252 /* RecipesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		613648D32A79A124002BD252 /* RecipesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesUITests.swift; sourceTree = "<group>"; };
 		613648D52A79A124002BD252 /* RecipesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		615A021F2A81B114004B6359 /* MockResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockResponse.json; sourceTree = "<group>"; };
 		6177F3D22A7F34E5004AC69E /* InternetConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnection.swift; sourceTree = "<group>"; };
 		6177F3D52A7F42AC004AC69E /* ViewController+TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+TextFieldDelegate.swift"; sourceTree = "<group>"; };
 		6177F3E52A7F498C004AC69E /* MockAPIFileLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIFileLoader.swift; sourceTree = "<group>"; };
 		6177F3E72A7F49AC004AC69E /* MockNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetwork.swift; sourceTree = "<group>"; };
-		6177F3E92A7F49CA004AC69E /* MockResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockResponse.json; sourceTree = "<group>"; };
 		6177F3EA2A7F49E0004AC69E /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
 		61A20F7A2A7F513300419497 /* MockLocalSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockLocalSource.swift; sourceTree = "<group>"; };
 		61B012462A7F669E0089E71B /* FavouritesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewModelTests.swift; sourceTree = "<group>"; };
@@ -230,7 +231,6 @@
 		613648C82A79A124002BD252 /* RecipesTests */ = {
 			isa = PBXGroup;
 			children = (
-				6177F3E92A7F49CA004AC69E /* MockResponse.json */,
 				6177F3E52A7F498C004AC69E /* MockAPIFileLoader.swift */,
 				6177F3EA2A7F49E0004AC69E /* NetworkTests.swift */,
 				6177F3E72A7F49AC004AC69E /* MockNetwork.swift */,
@@ -241,6 +241,7 @@
 				61B012462A7F669E0089E71B /* FavouritesViewModelTests.swift */,
 				61B012482A7F68370089E71B /* DetailsViewModelTests.swift */,
 				61B0124A2A7F68610089E71B /* LoginViewModelTests.swift */,
+				615A021F2A81B114004B6359 /* MockResponse.json */,
 			);
 			path = RecipesTests;
 			sourceTree = "<group>";
@@ -567,6 +568,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				615A02202A81B114004B6359 /* MockResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,7 +14,7 @@ final class HomeViewModelTests: XCTestCase {
     var network: NetworkProtocol!
     override func setUpWithError() throws {
         network = MockNetwork(isSuccess: false)
-        homeViewModel = HomeViewModel(network: network)
+        homeViewModel = HomeViewModel(network: MockNetwork(isSuccess: true))
     }
     
     override func tearDownWithError() throws {
@@ -22,6 +22,27 @@ final class HomeViewModelTests: XCTestCase {
         network = nil
     }
     
-
+    
+    func testGetData() {
+        homeViewModel.getData()
+        XCTAssertNotNil(homeViewModel.recipes)
+        XCTAssertEqual(homeViewModel.recipes.count, 2)
+        
+    }
+    
+    func testGetDataNoNetwork() {
+        homeViewModel = HomeViewModel(network: MockNetwork(isSuccess: false))
+        homeViewModel.getData()
+        XCTAssertEqual(homeViewModel.recipes.count, 0)
+    }
+    
+    func testLogout() {
+        homeViewModel.logout()
+        XCTAssertEqual(UserDefault().getEmail(), "")
+    }
+    
+    func testConnection() {
+        XCTAssertTrue(homeViewModel.checkInternetConnection())
+    }
     
 }
