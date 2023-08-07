@@ -13,8 +13,8 @@ class LoginViewModel {
         if email == Constants.email && password == Constants.password {
             UserDefault().setUser(email: email, password: password)
             return true
-        }else {
-            return false
         }
+        return false
+        
     }
 }
